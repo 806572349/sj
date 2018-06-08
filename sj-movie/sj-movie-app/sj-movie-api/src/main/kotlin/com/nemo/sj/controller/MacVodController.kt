@@ -27,12 +27,25 @@ class MacVodController{
 
     @Reference(check = false)
     lateinit var iMacVodService: IMacVodService;
+
+
+    @Autowired
+    lateinit var iMacVodServiceLocal: IMacVodService;
     /**
-     * 查询
+     * rpc调用查询
      */
-    @GetMapping("/fbp")
+    @GetMapping("/fbprpc")
     fun  queryPage(page: Page<MacVod>, macVodParams: MacVodParams):Page<MacVod>{
         val data = iMacVodService.queryPage(page, macVodParams)
+        return data;
+    }
+
+    /**
+     * local查询
+     */
+    @GetMapping("/fbp")
+    fun  local(page: Page<MacVod>, macVodParams: MacVodParams):Page<MacVod>{
+        val data = iMacVodServiceLocal.queryPage(page, macVodParams)
         return data;
     }
 
