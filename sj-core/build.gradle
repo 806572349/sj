@@ -1,0 +1,7 @@
+archivesBaseName="sj-core"
+
+dependencies{
+
+    compile('commons-codec:commons-codec')
+    compile('commons-io:commons-io:2.6')
+}

@@ -1,0 +1,8 @@
+archivesBaseName="sj-movie-service"
+
+
+dependencies{
+    compile project(":sj-movie:sj-movie-rpc")
+    compile project(":sj-movie:sj-movie-app:sj-movie-dao")
+
+}

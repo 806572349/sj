@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacVodMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacVod">
+        <id column="d_id" property="dId" />
+        <result column="d_name" property="dName" />
+        <result column="d_subname" property="dSubname" />
+        <result column="d_enname" property="dEnname" />
+        <result column="d_letter" property="dLetter" />
+        <result column="d_color" property="dColor" />
+        <result column="d_pic" property="dPic" />
+        <result column="d_picthumb" property="dPicthumb" />
+        <result column="d_picslide" property="dPicslide" />
+        <result column="d_starring" property="dStarring" />
+        <result column="d_directed" property="dDirected" />
+        <result column="d_tag" property="dTag" />
+        <result column="d_remarks" property="dRemarks" />
+        <result column="d_area" property="dArea" />
+        <result column="d_lang" property="dLang" />
+        <result column="d_year" property="dYear" />
+        <result column="d_type" property="dType" />
+        <result column="d_type_expand" property="dTypeExpand" />
+        <result column="d_class" property="dClass" />
+        <result column="d_topic" property="dTopic" />
+        <result column="d_hide" property="dHide" />
+        <result column="d_lock" property="dLock" />
+        <result column="d_state" property="dState" />
+        <result column="d_level" property="dLevel" />
+        <result column="d_usergroup" property="dUsergroup" />
+        <result column="d_stint" property="dStint" />
+        <result column="d_stintdown" property="dStintdown" />
+        <result column="d_hits" property="dHits" />
+        <result column="d_dayhits" property="dDayhits" />
+        <result column="d_weekhits" property="dWeekhits" />
+        <result column="d_monthhits" property="dMonthhits" />
+        <result column="d_duration" property="dDuration" />
+        <result column="d_up" property="dUp" />
+        <result column="d_down" property="dDown" />
+        <result column="d_score" property="dScore" />
+        <result column="d_scoreall" property="dScoreall" />
+        <result column="d_scorenum" property="dScorenum" />
+        <result column="d_addtime" property="dAddtime" />
+        <result column="d_time" property="dTime" />
+        <result column="d_hitstime" property="dHitstime" />
+        <result column="d_maketime" property="dMaketime" />
+        <result column="d_content" property="dContent" />
+        <result column="d_playfrom" property="dPlayfrom" />
+        <result column="d_playserver" property="dPlayserver" />
+        <result column="d_playnote" property="dPlaynote" />
+        <result column="d_playurl" property="dPlayurl" />
+        <result column="d_downfrom" property="dDownfrom" />
+        <result column="d_downserver" property="dDownserver" />
+        <result column="d_downnote" property="dDownnote" />
+        <result column="d_downurl" property="dDownurl" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacUserVisitMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacUserVisit">
+        <id column="uv_id" property="uvId" />
+        <result column="uv_uid" property="uvUid" />
+        <result column="uv_ip" property="uvIp" />
+        <result column="uv_ly" property="uvLy" />
+        <result column="uv_time" property="uvTime" />
+    </resultMap>
+
+</mapper>

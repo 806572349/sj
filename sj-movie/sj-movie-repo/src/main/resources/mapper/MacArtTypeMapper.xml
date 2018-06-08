@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacArtTypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacArtType">
+        <id column="t_id" property="tId" />
+        <result column="t_name" property="tName" />
+        <result column="t_enname" property="tEnname" />
+        <result column="t_pid" property="tPid" />
+        <result column="t_sort" property="tSort" />
+        <result column="t_hide" property="tHide" />
+        <result column="t_tpl" property="tTpl" />
+        <result column="t_tpl_list" property="tTplList" />
+        <result column="t_tpl_art" property="tTplArt" />
+        <result column="t_key" property="tKey" />
+        <result column="t_des" property="tDes" />
+        <result column="t_title" property="tTitle" />
+        <result column="t_union" property="tUnion" />
+    </resultMap>
+
+</mapper>

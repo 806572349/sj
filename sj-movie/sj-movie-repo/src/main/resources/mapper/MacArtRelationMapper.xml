@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacArtRelationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacArtRelation">
+        <id column="r_id" property="rId" />
+        <result column="r_type" property="rType" />
+        <result column="r_a" property="rA" />
+        <result column="r_b" property="rB" />
+    </resultMap>
+
+</mapper>

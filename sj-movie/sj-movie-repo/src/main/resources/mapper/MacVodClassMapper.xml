@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacVodClassMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacVodClass">
+        <id column="c_id" property="cId" />
+        <result column="c_name" property="cName" />
+        <result column="c_pid" property="cPid" />
+        <result column="c_sort" property="cSort" />
+        <result column="c_hide" property="cHide" />
+    </resultMap>
+
+</mapper>

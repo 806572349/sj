@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacVodTopicMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacVodTopic">
+        <id column="t_id" property="tId" />
+        <result column="t_name" property="tName" />
+        <result column="t_enname" property="tEnname" />
+        <result column="t_sort" property="tSort" />
+        <result column="t_tpl" property="tTpl" />
+        <result column="t_pic" property="tPic" />
+        <result column="t_content" property="tContent" />
+        <result column="t_key" property="tKey" />
+        <result column="t_des" property="tDes" />
+        <result column="t_title" property="tTitle" />
+        <result column="t_hide" property="tHide" />
+        <result column="t_level" property="tLevel" />
+        <result column="t_up" property="tUp" />
+        <result column="t_down" property="tDown" />
+        <result column="t_score" property="tScore" />
+        <result column="t_scoreall" property="tScoreall" />
+        <result column="t_scorenum" property="tScorenum" />
+        <result column="t_hits" property="tHits" />
+        <result column="t_dayhits" property="tDayhits" />
+        <result column="t_weekhits" property="tWeekhits" />
+        <result column="t_monthhits" property="tMonthhits" />
+        <result column="t_addtime" property="tAddtime" />
+        <result column="t_time" property="tTime" />
+        <result column="t_hitstime" property="tHitstime" />
+    </resultMap>
+
+</mapper>

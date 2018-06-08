@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacArtMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacArt">
+        <id column="a_id" property="aId" />
+        <result column="a_name" property="aName" />
+        <result column="a_subname" property="aSubname" />
+        <result column="a_enname" property="aEnname" />
+        <result column="a_letter" property="aLetter" />
+        <result column="a_color" property="aColor" />
+        <result column="a_from" property="aFrom" />
+        <result column="a_author" property="aAuthor" />
+        <result column="a_tag" property="aTag" />
+        <result column="a_pic" property="aPic" />
+        <result column="a_type" property="aType" />
+        <result column="a_topic" property="aTopic" />
+        <result column="a_level" property="aLevel" />
+        <result column="a_hide" property="aHide" />
+        <result column="a_lock" property="aLock" />
+        <result column="a_up" property="aUp" />
+        <result column="a_down" property="aDown" />
+        <result column="a_hits" property="aHits" />
+        <result column="a_dayhits" property="aDayhits" />
+        <result column="a_weekhits" property="aWeekhits" />
+        <result column="a_monthhits" property="aMonthhits" />
+        <result column="a_addtime" property="aAddtime" />
+        <result column="a_time" property="aTime" />
+        <result column="a_hitstime" property="aHitstime" />
+        <result column="a_maketime" property="aMaketime" />
+        <result column="a_remarks" property="aRemarks" />
+        <result column="a_content" property="aContent" />
+    </resultMap>
+
+</mapper>

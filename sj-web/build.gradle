@@ -1,0 +1,5 @@
+archivesBaseName="sj-web"
+
+dependencies{
+    compile project(":sj-movie:sj-movie-app:sj-movie-api");
+}

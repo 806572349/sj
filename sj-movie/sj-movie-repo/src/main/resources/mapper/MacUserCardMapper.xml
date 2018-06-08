@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacUserCardMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacUserCard">
+        <id column="c_id" property="cId" />
+        <result column="c_number" property="cNumber" />
+        <result column="c_pass" property="cPass" />
+        <result column="c_money" property="cMoney" />
+        <result column="c_point" property="cPoint" />
+        <result column="c_used" property="cUsed" />
+        <result column="c_sale" property="cSale" />
+        <result column="c_user" property="cUser" />
+        <result column="c_addtime" property="cAddtime" />
+        <result column="c_usetime" property="cUsetime" />
+    </resultMap>
+
+</mapper>

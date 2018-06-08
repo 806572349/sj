@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacManagerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacManager">
+        <id column="m_id" property="mId" />
+        <result column="m_name" property="mName" />
+        <result column="m_password" property="mPassword" />
+        <result column="m_levels" property="mLevels" />
+        <result column="m_random" property="mRandom" />
+        <result column="m_status" property="mStatus" />
+        <result column="m_logintime" property="mLogintime" />
+        <result column="m_loginip" property="mLoginip" />
+        <result column="m_loginnum" property="mLoginnum" />
+    </resultMap>
+
+</mapper>

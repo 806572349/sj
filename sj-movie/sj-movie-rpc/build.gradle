@@ -1,0 +1,7 @@
+archivesBaseName="sj-movie-rpc"
+
+
+dependencies{
+    compile project(":sj-movie:sj-movie-repo")
+    compile("com.alibaba.boot:dubbo-spring-boot-starter:${dubboVersion}")
+}

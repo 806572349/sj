@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacGbookMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacGbook">
+        <id column="g_id" property="gId" />
+        <result column="g_vid" property="gVid" />
+        <result column="g_hide" property="gHide" />
+        <result column="g_sort" property="gSort" />
+        <result column="g_name" property="gName" />
+        <result column="g_content" property="gContent" />
+        <result column="g_reply" property="gReply" />
+        <result column="g_ip" property="gIp" />
+        <result column="g_time" property="gTime" />
+        <result column="g_replytime" property="gReplytime" />
+    </resultMap>
+
+</mapper>

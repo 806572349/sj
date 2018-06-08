@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacUser">
+        <id column="u_id" property="uId" />
+        <result column="u_qid" property="uQid" />
+        <result column="u_name" property="uName" />
+        <result column="u_password" property="uPassword" />
+        <result column="u_qq" property="uQq" />
+        <result column="u_email" property="uEmail" />
+        <result column="u_phone" property="uPhone" />
+        <result column="u_status" property="uStatus" />
+        <result column="u_flag" property="uFlag" />
+        <result column="u_question" property="uQuestion" />
+        <result column="u_answer" property="uAnswer" />
+        <result column="u_group" property="uGroup" />
+        <result column="u_points" property="uPoints" />
+        <result column="u_regtime" property="uRegtime" />
+        <result column="u_logintime" property="uLogintime" />
+        <result column="u_loginnum" property="uLoginnum" />
+        <result column="u_extend" property="uExtend" />
+        <result column="u_loginip" property="uLoginip" />
+        <result column="u_random" property="uRandom" />
+        <result column="u_fav" property="uFav" />
+        <result column="u_plays" property="uPlays" />
+        <result column="u_downs" property="uDowns" />
+        <result column="u_start" property="uStart" />
+        <result column="u_end" property="uEnd" />
+    </resultMap>
+
+</mapper>

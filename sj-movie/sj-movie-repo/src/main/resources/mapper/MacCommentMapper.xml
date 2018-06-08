@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nemo.sj.mapper.MacCommentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.nemo.sj.entity.MacComment">
+        <id column="c_id" property="cId" />
+        <result column="c_type" property="cType" />
+        <result column="c_vid" property="cVid" />
+        <result column="c_rid" property="cRid" />
+        <result column="c_hide" property="cHide" />
+        <result column="c_name" property="cName" />
+        <result column="c_ip" property="cIp" />
+        <result column="c_content" property="cContent" />
+        <result column="c_time" property="cTime" />
+    </resultMap>
+
+</mapper>

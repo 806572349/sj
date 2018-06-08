@@ -1,0 +1,7 @@
+archivesBaseName="sj-movie-dao"
+
+dependencies{
+
+    compile project(":sj-core")
+    compile project(":sj-movie:sj-movie-repo")
+}
