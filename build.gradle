@@ -42,6 +42,8 @@ allprojects {
         springCloudVersion = 'Edgware.SR3'
         dubboVersion='0.1.0'
         mybatisPlusVersion='2.3'
+        //gson版本号
+        gSonVersion = "2.8.2"
     }
 
     repositories {
@@ -64,10 +66,9 @@ allprojects {
         compile("org.jetbrains.kotlin:kotlin-reflect")
         testCompile('org.springframework.boot:spring-boot-starter-test')
 //        compile files('libs/spring-boot-starter-encrypt-1.0.0.jar')
-        // https://mvnrepository.com/artifact/com.101tec/zkclient
         compile group: 'com.101tec', name: 'zkclient', version: '0.10'
-//        compile("com.alibaba.boot:dubbo-spring-boot-starter:${dubboVersion}")
-
+        compileOnly('org.projectlombok:lombok')
+        compile("org.springframework.boot:spring-boot-starter-aop")
     }
     dependencyManagement {
         imports {

@@ -7,6 +7,7 @@ import java.io.Serializable
  *  2018/6/8  9:52
  */
 class MacVodParams :Serializable{
+    private val serialVersionUID = 1L
     /**
      * 影片名称
      */
@@ -27,6 +28,9 @@ class MacVodParams :Serializable{
     var dType: Int? = null
 
     override fun toString(): String {
-        return super.toString()
+        return "MacVodParams(serialVersionUID=$serialVersionUID, dName=$dName, dEnname=$dEnname, dYear=$dYear, dType=$dType)"
     }
+
+
+
 }
