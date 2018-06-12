@@ -21,10 +21,10 @@ class RedisConfig {
      * @param redisTemplate
      * @return
      */
-    @Bean
-    fun cacheManager(redisTemplate: RedisTemplate<*, *>): CacheManager {
-        return RedisCacheManager(redisTemplate)
-    }
+//    @Bean
+//    fun cacheManager(redisTemplate: RedisTemplate<*, *>): CacheManager {
+//        return RedisCacheManager(redisTemplate)
+//    }
     @Bean
     fun redisManage(): com.nemo.sj.cache.CacheManager{
         return com.nemo.sj.cache.CacheManager();

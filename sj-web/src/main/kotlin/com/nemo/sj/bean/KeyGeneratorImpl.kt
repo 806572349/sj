@@ -13,8 +13,11 @@ import java.lang.reflect.Method
 @Component("KeyGeneratorImpl")
 class KeyGeneratorImpl: KeyGenerator {
     var log = LoggerFactory.getLogger(this.javaClass);
-    override fun generate(target: Any, method: Method?, vararg params: Any?): Any {
+    override fun generate(target: Any, method: Method, vararg params: Any?): Any {
         val key = BaseCacheKey(target, method, params)
         return key.toString()
     }
+
+
+
 }

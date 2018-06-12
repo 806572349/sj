@@ -4,4 +4,13 @@ archivesBaseName="sj-movie-rpc"
 dependencies{
     compile project(":sj-movie:sj-movie-repo")
     compile("com.alibaba.boot:dubbo-spring-boot-starter:${dubboVersion}")
+//    compile files('libs/dubbo-spring-boot-starter-0.2.0-SNAPSHOT.jar')
+//    compile files('libs/dubbo-spring-boot-actuator-0.2.0-SNAPSHOT.jar')
+//    compile files('libs/dubbo-spring-boot-autoconfigure-0.2.0-SNAPSHOT.jar')
+//    compile("org.springframework.boot:spring-boot-configuration-processor")
+//    compile("org.springframework.boot:spring-boot-autoconfigure")
+
+//    compile files('libs/spring-boot-starter-encrypt-1.0.0.jar')
+//    compile("com.alibaba:dubbo:2.6.2")
+//    compile("org.apache.zookeeper:zookeeper:3.4.9")
 }
