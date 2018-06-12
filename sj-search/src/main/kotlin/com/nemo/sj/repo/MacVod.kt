@@ -1,4 +1,4 @@
-package com.neme.sj.repo
+package com.nemo.sj.repo
 
 import java.math.BigDecimal
 import org.springframework.data.annotation.Id

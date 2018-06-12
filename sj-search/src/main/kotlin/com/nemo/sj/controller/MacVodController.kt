@@ -1,8 +1,8 @@
-package com.neme.sj.controller
+package com.nemo.sj.controller
 
 //import com.alibaba.dubbo.config.annotation.Reference
-import com.neme.sj.dao.MavVodDao
-import com.neme.sj.repo.MacVod
+import com.nemo.sj.dao.MavVodSearchDao
+import com.nemo.sj.repo.MacVod
 import jdk.nashorn.internal.ir.annotations.Reference
 //import com.nemo.sj.rpc.IMacVodService
 import org.springframework.beans.factory.annotation.Autowired
@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+
+
 
 /**
  *  create by Nemo
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class MacVodController {
     @Autowired
-    lateinit var mavVodDao: MavVodDao;
+    lateinit var mavVodDao: MavVodSearchDao;
 
 
     @GetMapping("/test")

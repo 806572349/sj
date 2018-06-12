@@ -11,7 +11,6 @@ import com.nemo.sj.params.MacVodParams
 import com.nemo.sj.rpc.IMacVodService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
-
 /**
  * <p>
  *  服务实现类

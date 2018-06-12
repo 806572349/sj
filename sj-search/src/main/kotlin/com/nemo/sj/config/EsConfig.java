@@ -1,4 +1,4 @@
-package com.neme.sj.config;
+package com.nemo.sj.config;
 
 import org.springframework.context.annotation.Configuration;
 

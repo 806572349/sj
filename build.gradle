@@ -44,6 +44,8 @@ allprojects {
         mybatisPlusVersion='2.3'
         //gson版本号
         gSonVersion = "2.8.2"
+        elasticsearchVersion='6.2.4'
+        elasticsearchRestHighLevelClientVersion="6.2.4"
     }
 
     repositories {

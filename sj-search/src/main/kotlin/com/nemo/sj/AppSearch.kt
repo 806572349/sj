@@ -1,4 +1,4 @@
-package com.neme.sj
+package com.nemo.sj
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
