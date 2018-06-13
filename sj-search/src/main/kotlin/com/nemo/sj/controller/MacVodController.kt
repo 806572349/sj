@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class MacVodController {
     @Autowired
-    lateinit var mavVodDao: MavVodSearchDao;
+    lateinit var mavVodDao: MavVodSearchDao
 
 
     @GetMapping("/test")
