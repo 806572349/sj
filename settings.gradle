@@ -14,4 +14,8 @@ include 'sj-movie:sj-movie-rpc'
 findProject(':sj-movie:sj-movie-rpc')?.name = 'sj-movie-rpc'
 include 'sj-web'
 include 'sj-core'
+include 'si-user'
+include 'sj-mq'
+
+include 'sj-search'
 

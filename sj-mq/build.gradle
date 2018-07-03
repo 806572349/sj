@@ -1,0 +1,9 @@
+
+archivesBaseName="sj-mq"
+
+dependencies {
+
+    compile("org.springframework.boot:spring-boot-starter-amqp")
+
+}
+

@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component
  * @since 2018-06-08
  */
 @Component
-@Service(interfaceName = "com.nemo.sj.rpc.IMacVodService")
+@Service(interfaceClass= IMacVodService::class)
 open class MacVodServiceImpl : ServiceImpl<MacVodMapper, MacVod>(), IMacVodService {
 
 

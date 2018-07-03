@@ -14,6 +14,10 @@ dependencies{
     compile("com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"){
         exclude module:'tomcat-jdbc'
     }
+
+//    compile("org.springframework.boot:spring-boot-starter-data-ldap")
+//
+//    compile("com.unboundid:unboundid-ldapsdk")
 //    runtime("net.java.dev.jna:jna")
 //    compile("org.springframework.boot:spring-boot-starter-data-elasticsearch:1.5.12.RELEASE")
 

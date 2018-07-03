@@ -1,7 +1,8 @@
 buildscript {
     ext {
         kotlinVersion = '1.2.41'
-        springBootVersion = '1.5.12.RELEASE'
+//        springBootVersion = '1.5.12.RELEASE'
+        springBootVersion = '2.0.3.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -39,8 +40,9 @@ allprojects {
 
     ext {
         springCloudTaskVersion = '1.2.2.RELEASE'
-        springCloudVersion = 'Edgware.SR3'
-        dubboVersion='0.1.0'
+//        springCloudVersion = 'Edgware.SR3'
+        springCloudVersion = 'Finchley.RELEASE'
+        dubboVersion='0.2.0'
         mybatisPlusVersion='2.3'
         //gson版本号
         gSonVersion = "2.8.2"
@@ -71,11 +73,15 @@ allprojects {
         compile group: 'com.101tec', name: 'zkclient', version: '0.10'
         compileOnly('org.projectlombok:lombok')
         compile("org.springframework.boot:spring-boot-starter-aop")
+
+        // https://mvnrepository.com/artifact/log4j/log4j
+        compile group: 'log4j', name: 'log4j', version: '1.2.17'
+
     }
     dependencyManagement {
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-            mavenBom "org.springframework.cloud:spring-cloud-task-dependencies:${springCloudTaskVersion}"
+//            mavenBom "org.springframework.cloud:spring-cloud-task-dependencies:${springCloudTaskVersion}"
         }
     }
 
