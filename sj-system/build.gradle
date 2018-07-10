@@ -90,7 +90,7 @@ allprojects {
             exclude module:'tomcat-jdbc'
         }
 
-//        compile project(":sj-core")
+        compile project(":sj-core")
 
     }
     dependencyManagement {

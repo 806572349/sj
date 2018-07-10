@@ -113,7 +113,7 @@ public class MpGenerator {
 
         // 自定义 xxList.jsp 生成
         List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
-//        focList.add(new FileOutConfig("/template/list.jsp.vm") {
+//        focList.add(new FileOutConfig("/templates/list.jsp.vm") {
 //            @Override
 //            public String outputFile(TableInfo tableInfo) {
 //                // 自定义输入文件名称

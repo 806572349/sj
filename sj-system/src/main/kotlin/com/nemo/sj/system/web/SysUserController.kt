@@ -1,6 +1,8 @@
 package com.nemo.sj.system.web;
 
 
+import com.nemo.sj.common.JsonData
+import com.nemo.sj.exception.PermissionException
 import com.nemo.sj.system.service.ISysUserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +25,12 @@ class SysUserController{
     @Autowired
     lateinit var isysUserService: ISysUserService
 
-
+    lateinit var  data:JsonData
     @GetMapping
-    fun void():String {
-        return "test";
+    fun void():JsonData {
+        throw PermissionException("这是异常")
+
+        return JsonData.Companion.success("test")
     }
 
 }
