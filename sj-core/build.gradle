@@ -7,4 +7,7 @@ dependencies{
     compile("org.springframework.boot:spring-boot-starter-data-redis")
     compile("org.springframework.boot:spring-boot-starter-cache")
     compile ("com.google.code.gson:gson:$gSonVersion")
+    compile("org.apache.commons:commons-lang3:3.6")
+    compile("commons-collections:commons-collections:3.2.2")
+    compile("com.google.guava:guava:20.0")
 }
