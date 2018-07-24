@@ -1,4 +1,4 @@
-package com.nemo.sj.system.web;
+package com.nemo.sj.system.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;

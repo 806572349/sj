@@ -1,4 +1,4 @@
-package com.nemo.sj.system.web;
+package com.nemo.sj.system.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,5 +14,5 @@ import org.springframework.stereotype.Controller;
  * @since 2018-07-09
  */
 @Controller
-@RequestMapping("/system/sysRoleUser")
-class SysRoleUserController
+@RequestMapping("/system/sysLog")
+class SysLogController

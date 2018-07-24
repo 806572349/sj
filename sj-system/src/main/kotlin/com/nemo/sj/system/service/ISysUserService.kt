@@ -11,4 +11,15 @@ import com.baomidou.mybatisplus.service.IService;
  * @author nemo
  * @since 2018-07-09
  */
-interface ISysUserService : IService<SysUser>
+interface ISysUserService : IService<SysUser> {
+    /**
+     * 登陆
+     */
+    fun login(user: SysUser): SysUser?
+
+    /**
+     * 通过部门id  用户列表
+     * @param depId 部门id
+     */
+    fun findByDepIdList(depId: Int): List<SysUser>
+}

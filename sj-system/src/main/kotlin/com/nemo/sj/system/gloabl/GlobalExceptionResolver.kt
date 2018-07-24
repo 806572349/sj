@@ -2,6 +2,7 @@ package com.nemo.sj.system.gloabl
 
 import com.nemo.sj.base.BaseExceptionResolver
 import com.nemo.sj.common.JsonData
+import com.nemo.sj.exception.OptException
 import com.nemo.sj.exception.ParamException
 import com.nemo.sj.exception.PermissionException
 import lombok.extern.slf4j.Slf4j
@@ -28,6 +29,14 @@ class GlobalExceptionResolver : BaseExceptionResolver() {
     @ResponseBody
     @ExceptionHandler(value = [(ParamException::class)])
     fun exceptionHandler(ex:ParamException): JsonData {
+        val jsonData = JsonData.fail(ex.message!!)
+        log.error("出现错误json：{}",ex.message)
+        return jsonData;
+    }
+
+    @ResponseBody
+    @ExceptionHandler(value = [(OptException::class)])
+    fun exceptionHandler(ex:OptException): JsonData {
         val jsonData = JsonData.fail(ex.message!!)
         log.error("出现错误json：{}",ex.message)
         return jsonData;
