@@ -15,7 +15,7 @@ import java.util.*;
 
 /**
  *
- * 工具检验类
+ * 工具参数检验类
  * Created with IntelliJ IDEA.
  * User: Nemo
  * Date: 2018/3/5

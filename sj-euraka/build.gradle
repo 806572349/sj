@@ -60,38 +60,12 @@ allprojects {
     }
 
     dependencies {
-        compile("org.springframework.cloud:spring-cloud-starter-eureka")
-        compile('org.springframework.boot:spring-boot-starter-web'){
-            exclude module:'tomcat-jdbc'
-        }
-        compile('com.fasterxml.jackson.module:jackson-module-kotlin')
-        compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-        compile("org.jetbrains.kotlin:kotlin-reflect")
+        compile('org.springframework.cloud:spring-cloud-starter-security')
+        compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
+        compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+        compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
         testCompile('org.springframework.boot:spring-boot-starter-test')
-//        compile files('libs/spring-boot-starter-encrypt-1.0.0.jar')
-        compile group: 'com.101tec', name: 'zkclient', version: '0.10'
-        compileOnly('org.projectlombok:lombok')
-        compile("org.springframework.boot:spring-boot-starter-aop")
 
-        // https://mvnrepository.com/artifact/log4j/log4j
-        compile group: 'log4j', name: 'log4j', version: '1.2.17'
-
-        compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-
-
-        compile group: 'org.apache.velocity', name: 'velocity-engine-core', version: '2.0'
-        compile('org.springframework:spring-tx')
-        //HikariCP连接池
-        compile('com.zaxxer:HikariCP')
-        //数据库驱动
-        compile("mysql:mysql-connector-java")
-
-
-        compile("com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"){
-            exclude module:'tomcat-jdbc'
-        }
-
-        compile project(":sj-core")
 
     }
     dependencyManagement {

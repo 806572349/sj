@@ -4,6 +4,7 @@ package com.nemo.sj.system.web;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController
 
 /**
  * <p>
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Controller;
  * @author nemo
  * @since 2018-07-09
  */
-@Controller
+@RestController
 @RequestMapping("/system/sysAcl")
 class SysAclController{
 

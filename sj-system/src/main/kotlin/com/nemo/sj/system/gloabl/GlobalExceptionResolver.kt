@@ -18,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView
 @ControllerAdvice
 class GlobalExceptionResolver : BaseExceptionResolver() {
 
-    @ResponseBody
     @ExceptionHandler(value = [(PermissionException::class)])
     fun exceptionHandler(ex:PermissionException): ModelAndView {
         val jsonData = JsonData.fail(ex.message!!)

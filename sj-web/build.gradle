@@ -5,4 +5,5 @@ dependencies{
 //    compile project(":sj-search")
 
     compile project(":sj-mq")
+    compile project(":sj-system")
 }
