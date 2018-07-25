@@ -21,13 +21,13 @@ import org.springframework.web.bind.annotation.*
  */
 @RestController
 @RequestMapping("/system/sysUser")
-class SysUserController{
+class SysUserController {
     @Autowired
     lateinit var isysUserService: ISysUserService
 
-    lateinit var  data:JsonData
+    lateinit var data: JsonData
     @GetMapping
-    fun void():JsonData {
+    fun void(): JsonData {
         throw PermissionException("这是异常")
 
         return JsonData.Companion.success("test")
@@ -37,10 +37,10 @@ class SysUserController{
      * 登陆
      */
     @PostMapping("/login")
-    fun  systemUserLogin(user: SysUserDto):SysUser?{
+    fun systemUserLogin(user: SysUserDto): SysUser? {
         //转化类
         val userSys = SysUserDto.doForward(user)
-       return isysUserService.login(userSys)
+        return isysUserService.login(userSys)
 
     }
 
@@ -49,10 +49,9 @@ class SysUserController{
      * @param depId 部门id
      */
     @GetMapping("/dept/{depid}")
-    fun findByDepIdList(@PathVariable depid:Int):List<SysUser>{
+    fun findByDepIdList(@PathVariable depid: Int): List<SysUser> {
         return isysUserService.findByDepIdList(depid)
     }
-
 
 
 }

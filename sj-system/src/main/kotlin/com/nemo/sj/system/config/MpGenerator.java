@@ -25,7 +25,9 @@ public class MpGenerator {
      * MySQL 生成演示
      * </p>
      */
-    private static String path = "E:\\DownLoad\\Study\\Java\\Study\\Demo\\sj-pro\\sj-system";
+    private static String path = "E:\\DownLoad\\Study\\Java\\Study\\Demo\\sj-pro\\generator";
+
+    public static final String jdbcurl="jdbc:mysql://192.168.31.155:3306/sj?useUnicode=true&amp;characterEncoding=UTF-8";
     public static void main(String[] args) {
         AutoGenerator mpg = new AutoGenerator();
         // 选择 freemarker 引擎，默认 Veloctiy
@@ -64,7 +66,7 @@ public class MpGenerator {
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("csn");
         dsc.setPassword("123456");
-        dsc.setUrl("jdbc:mysql://192.168.2.102:3306/sj?useUnicode=true&amp;characterEncoding=UTF-8");
+        dsc.setUrl(jdbcurl);
         mpg.setDataSource(dsc);
 
         // 策略配置
