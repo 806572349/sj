@@ -1,10 +1,11 @@
 package com.nemo.sj.fegin.fallback;
 
-import com.nemo.sj.config.FeginConfig;
+import com.nemo.sj.dto.AclDto;
 import com.nemo.sj.fegin.AclService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * create by Nemo
@@ -14,4 +15,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class AclFallbackImpl implements AclService {
 
+    @Override
+    public List<AclDto> findAclByRoleName(String roleName) {
+        log.error("查询roleName 失败");
+        return null;
+    }
 }

@@ -1,14 +1,13 @@
 package com.nemo.sj.system.controller;
 
 
+import com.nemo.sj.dto.AclDto
 import com.nemo.sj.system.entity.SysRoleAcl
 import com.nemo.sj.system.service.ISysAclService
+import org.springframework.beans.BeanUtils
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+import java.util.stream.Collectors
 
 /**
  * <p>
@@ -29,9 +28,14 @@ class SysAclController{
     /**
      *  根据角色名 查询模块列表
      */
-    @PostMapping("/findAclByRoleName/{roleName}")
-    fun findAclByRoleName(@PathVariable roleName:String):List<SysRoleAcl>{
-        return iSysAclService.findAclByRoleName(roleName)
+    @GetMapping("/findAclByRoleName/{roleName}")
+    fun findAclByRoleName(@PathVariable roleName:String):List<AclDto>{
+        val aclList = iSysAclService.findAclByRoleName(roleName)
+        return  aclList.stream().map { a->
+            var dto=AclDto()
+            BeanUtils.copyProperties(a,dto)
+            dto
+        }.collect(Collectors.toList())
     }
 
 }

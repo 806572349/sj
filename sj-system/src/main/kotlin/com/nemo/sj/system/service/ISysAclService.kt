@@ -16,5 +16,5 @@ interface ISysAclService : IService<SysAcl> {
     /**
      *  根据角色名 查询模块列表
      */
-    fun findAclByRoleName(roleName: String): List<SysRoleAcl>
+    fun findAclByRoleName(roleName: String): List<SysAcl>
 }
