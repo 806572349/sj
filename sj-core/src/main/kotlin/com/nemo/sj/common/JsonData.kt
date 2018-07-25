@@ -37,6 +37,14 @@ class JsonData {
             }
         }
 
+        fun fail(data: Any,msg:String):JsonData{
+            return JsonData().apply {
+                ret=false
+                this.msg=msg
+                this.data=data
+            }
+        }
+
         fun success(msg: String):JsonData{
             return JsonData().apply {
                 ret=true

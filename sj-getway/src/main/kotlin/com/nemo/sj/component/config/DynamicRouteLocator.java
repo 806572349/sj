@@ -118,7 +118,7 @@ public class DynamicRouteLocator extends DiscoveryClientRouteLocator {
             } catch (Exception e) {
                 log.error("从数据库加载路由配置异常", e);
             }
-            log.info("添加数据库自定义的路由配置,path：{}，serviceId:{}", zuulRoute.getPath(), zuulRoute.getServiceId());
+            log.debug("添加数据库自定义的路由配置,path：{}，serviceId:{}", zuulRoute.getPath(), zuulRoute.getServiceId());
             routes.put(zuulRoute.getPath(), zuulRoute);
         }
         return routes;

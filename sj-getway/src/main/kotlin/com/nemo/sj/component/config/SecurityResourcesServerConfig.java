@@ -2,6 +2,7 @@ package com.nemo.sj.component.config;
 
 import com.nemo.sj.config.FilterIgnorePropertiesConfig;
 import com.nemo.sj.fegin.AclService;
+import com.nemo.sj.handler.PigAccessDeniedHandler;
 import com.nemo.sj.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -32,9 +33,13 @@ public class SecurityResourcesServerConfig extends ResourceServerConfigurerAdapt
     @Autowired
     private OAuth2WebSecurityExpressionHandler expressionHandler;
 
+
+    @Autowired
+    private PigAccessDeniedHandler pigAccessDeniedHandler;
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
         resources.expressionHandler(expressionHandler);
+        resources.accessDeniedHandler(pigAccessDeniedHandler);
     }
 
     @Override
