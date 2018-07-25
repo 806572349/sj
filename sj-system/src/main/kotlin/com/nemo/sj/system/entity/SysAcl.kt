@@ -72,7 +72,23 @@ class SysAcl : Model<SysAcl>() {
     @TableField("operate_ip")
     var operateIp: String? = null
 
+    /**
+     * 前端路径
+     */
+    var path: String? = null
+    /**
+     * 请求方法
+     */
+    var method: String? = null
 
+    /**
+     * 图标
+     */
+    var icon: String? = null
+    /**
+     * vue 界面
+     */
+    var component: String? = null
     override fun pkVal(): Serializable? {
         return id
     }
@@ -90,7 +106,7 @@ class SysAcl : Model<SysAcl>() {
         ", remark=" + remark +
         ", operator=" + operator +
         ", operateTime=" + operateTime +
-        ", operateIp=" + operateIp +
+        ", operateIp=" + operateIp +"icon="+icon+"path="+path+"component="+component+"method="+method
         "}"
     }
 }

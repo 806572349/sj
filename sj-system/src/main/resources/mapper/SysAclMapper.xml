@@ -16,6 +16,10 @@
         <result column="operator" property="operator" />
         <result column="operate_time" property="operateTime" />
         <result column="operate_ip" property="operateIp" />
+        <result column="path" property="path" />
+        <result column="method" property="method" />
+        <result column="icon" property="icon" />
+        <result column="component" property="component" />
     </resultMap>
 
 </mapper>
