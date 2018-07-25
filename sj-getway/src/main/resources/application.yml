@@ -13,7 +13,6 @@ spring:
 #      label: ${spring.profiles.active}
 logging:
   level: error
-
 eureka:
   instance:
     prefer-ip-address: true
@@ -26,12 +25,18 @@ eureka:
 zuul:
   ribbon:
     eager-load:
-      enabled: true
+      enabled: false
       clients: sj-system
   ignoredServices: '*'
   host:
       connect-timeout-millis: 10000
       socket-timeout-millis: 10000
+feign:
+  httpclient:
+    connection-timeout: 10000
+server:
+  servlet-path: /api
+
 #认证服务器地址
 #security:
 #  auth:

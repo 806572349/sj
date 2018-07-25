@@ -35,20 +35,20 @@ public interface CommonConstant {
     /**
      * jwt签名
      */
-    String SIGN_KEY = "PIG";
+    String SIGN_KEY = "SJ";
     /**
      * 删除
      */
-    String STATUS_DEL = "1";
+    String STATUS_DEL = "-1";
     /**
      * 正常
      */
-    String STATUS_NORMAL = "0";
+    String STATUS_NORMAL = "1";
 
     /**
      * 锁定
      */
-    String STATUS_LOCK = "9";
+    Integer STATUS_LOCK = 0;
 
     /**
      * 菜单

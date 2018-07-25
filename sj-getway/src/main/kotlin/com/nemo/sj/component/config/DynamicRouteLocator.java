@@ -63,8 +63,6 @@ public class DynamicRouteLocator extends DiscoveryClientRouteLocator {
         LinkedHashMap<String, ZuulProperties.ZuulRoute> routesMap = new LinkedHashMap<>();
         //读取properties配置、eureka默认配置
         routesMap.putAll(super.locateRoutes());
-        log.info("初始默认的路由配置完成");
-        log.info("动态路由路由开始配置");
         routesMap.putAll(locateRoutesFromDb());
         LinkedHashMap<String, ZuulProperties.ZuulRoute> values = new LinkedHashMap<>();
         for (Map.Entry<String, ZuulProperties.ZuulRoute> entry : routesMap.entrySet()) {

@@ -38,7 +38,7 @@ public interface SecurityConstants {
     /**
      * 项目的license
      */
-    String PIG_LICENSE = "made by pig";
+    String PIG_LICENSE = "made by sj";
     /**
      * 基础角色
      */
