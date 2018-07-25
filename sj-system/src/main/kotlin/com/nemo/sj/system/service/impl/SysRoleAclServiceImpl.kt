@@ -1,5 +1,6 @@
 package com.nemo.sj.system.service.impl;
 
+import com.baomidou.mybatisplus.mapper.Condition
 import com.nemo.sj.system.entity.SysRoleAcl;
 import com.nemo.sj.system.mapper.SysRoleAclMapper;
 import com.nemo.sj.system.service.ISysRoleAclService;
@@ -17,4 +18,12 @@ import org.springframework.stereotype.Service;
 @Service
 open class SysRoleAclServiceImpl : ServiceImpl<SysRoleAclMapper, SysRoleAcl>(), ISysRoleAclService {
 
+    /**
+     * 根据角色id 查询模块信息
+     */
+   override fun  findAclByRoleId(rid:Int?):List<SysRoleAcl>{
+        val entityWrapper = Condition.wrapper<SysRoleAcl>()
+        entityWrapper.eq("role_id",rid)
+        return this.selectList(entityWrapper)
+    }
 }

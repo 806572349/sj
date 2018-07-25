@@ -34,10 +34,38 @@ zuul:
 feign:
   httpclient:
     connection-timeout: 10000
-server:
-  servlet-path: /api
-
+#server:
+#  servlet-path: /api
 #认证服务器地址
 #security:
 #  auth:
-#    server: http://localhost:3000
+#    server: http://localhost:8887
+
+security:
+  oauth2:
+    client:
+      client-id: app
+      client-secret: app
+    resource:
+      token-info-uri: http://localhost:8887/oauth/check-token
+      service-id: sj-getway
+      jwt:
+         key-uri: http://localhost:8887/oauth/token_key #解析jwt令牌所需要密钥的地址
+
+ignore:
+  urls:
+    - /authentication/**
+    - /**/*.css
+    - /social
+    - /signin
+    - /signup
+    - /info
+    - /health
+    - /metrics/**
+    - /loggers/**
+    - /mobile/token
+    - /auth/**
+
+
+server:
+  port: 80

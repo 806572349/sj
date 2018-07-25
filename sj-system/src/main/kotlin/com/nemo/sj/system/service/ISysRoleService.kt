@@ -11,4 +11,9 @@ import com.baomidou.mybatisplus.service.IService;
  * @author nemo
  * @since 2018-07-09
  */
-interface ISysRoleService : IService<SysRole>
+interface ISysRoleService : IService<SysRole> {
+    /**
+     * 根据角色名称查找 角色信息
+     */
+    fun findByRoleName(roleName: String): SysRole
+}

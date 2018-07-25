@@ -1,5 +1,6 @@
-package com.nemo.sj.config;
+package com.nemo.sj.component.config;
 
+import com.nemo.sj.config.FilterIgnorePropertiesConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,8 +14,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
  * 2018/7/25  13:20
  */
 @Configuration
-//@EnableResourceServer
-public class SecurityResourcesServerConfig  extends ResourceServerConfigurerAdapter {
+@EnableResourceServer
+public class SecurityResourcesServerConfig extends ResourceServerConfigurerAdapter {
 
     private static final String DEMO_RESOURCE_ID = "order";
 

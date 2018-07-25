@@ -103,6 +103,10 @@ public class SecurityAuthorizationServerConfig extends AuthorizationServerConfig
 //        return new BCryptPasswordEncoder();
 //    }
 
+    /**
+     * 密码加密
+     * @return
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new PasswordEncoder() {

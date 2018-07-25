@@ -11,4 +11,6 @@ import com.baomidou.mybatisplus.service.IService;
  * @author nemo
  * @since 2018-07-09
  */
-interface ISysRoleAclService : IService<SysRoleAcl>
+interface ISysRoleAclService : IService<SysRoleAcl> {
+    fun findAclByRoleId(rid: Int?): List<SysRoleAcl>
+}
