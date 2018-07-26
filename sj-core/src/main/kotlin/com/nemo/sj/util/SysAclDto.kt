@@ -1,12 +1,22 @@
-package com.nemo.sj.dto
+package com.nemo.sj.util
 
-import java.util.*
+import com.baomidou.mybatisplus.enums.IdType
+import java.util.Date
+import com.baomidou.mybatisplus.annotations.TableId
+import com.baomidou.mybatisplus.annotations.TableField
+import com.baomidou.mybatisplus.activerecord.Model
+import com.baomidou.mybatisplus.annotations.TableName
+import java.io.Serializable
 
 /**
- *  create by Nemo
- *  2018/7/25  21:18
+ * <p>
+ * 
+ * </p>
+ *
+ * @author nemo
+ * @since 2018-07-09
  */
-class AclDto {
+class SysAclDto  {
 
     /**
      * 权限id
@@ -76,4 +86,23 @@ class AclDto {
     var component: String? = null
 
     var parentId:Int?=null
+
+
+
+    override fun toString(): String {
+        return "SysAcl{" +
+        ", id=" + id +
+        ", code=" + code +
+        ", name=" + name +
+        ", aclModuleId=" + aclModuleId +
+        ", url=" + url +
+        ", type=" + type +
+        ", status=" + status +
+        ", seq=" + seq +
+        ", remark=" + remark +
+        ", operator=" + operator +
+        ", operateTime=" + operateTime +
+        ", operateIp=" + operateIp +"icon="+icon+"path="+path+"component="+component+"method="+method+"parentId="+parentId
+        "}"
+    }
 }

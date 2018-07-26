@@ -1,0 +1,50 @@
+ignore:
+  urls:
+    - /product/**
+    - /authentication/**
+    - /**/*.css
+    - /social
+    - /signin
+    - /signup
+    - /info
+    - /health
+    - /metrics/**
+    - /loggers/**
+    - /mobile/token
+    - /auth/**
+    - /system/code/**
+    - /system/hashCode/**
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://sj:sj123456@localhost:1025/eureka
+    registry-fetch-interval-seconds: 10
+spring:
+  redis:
+    port: 6388
+  application:
+    name: sj-auth
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: csn
+    password: 123456
+    url: jdbc:mysql://192.168.31.155:3306/sj?useUnicode=true&amp;characterEncoding=UTF-8
+    type: com.zaxxer.hikari.HikariDataSource
+server:
+  port: 8887
+zuul:
+  host:
+    connect-timeout-millis: 10000
+  ribbon:
+    eager-load:
+      enabled: false
+      clients: sj-system
+feign:
+  httpclient:
+    connection-timeout: 10000
+

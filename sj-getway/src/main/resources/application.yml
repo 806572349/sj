@@ -2,7 +2,9 @@ spring:
   application:
     name: sj-getway
   redis:
-    port: 6388
+      port: 7000
+      host: 47.98.131.216
+      password: laosiji123456
 #  cloud:
 #    config:
 #      fail-fast: true
@@ -56,6 +58,8 @@ security:
 ignore:
   urls:
     - /authentication/**
+    - /**/*.js
+    - /**/*.html
     - /**/*.css
     - /social
     - /signin

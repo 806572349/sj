@@ -4,14 +4,15 @@ import java.util.*
 
 /**
  *  create by Nemo
- *  2018/7/25  21:18
+ *  2018/7/26  18:05
  */
-class AclDto {
+ class SysAclTree : TreeNode() {
+
 
     /**
      * 权限id
      */
-    var id: Int? = null
+
     /**
      * 权限码
      */
@@ -75,5 +76,16 @@ class AclDto {
      */
     var component: String? = null
 
-    var parentId:Int?=null
+    //    constructor(menuVo: AclDto) {
+//        this.id = menuVo.id!!
+//        this.parentId = menuVo.parentId!!
+//        this.icon = menuVo.icon!!
+//        this.name = menuVo.name!!
+//        this.url = menuVo.url!!
+//        this.path = menuVo.path!!
+//        this.component = menuVo.component!!
+//        this.type = menuVo.type!!
+//        this.seq = menuVo.seq!!
+//    }
+
 }

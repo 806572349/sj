@@ -88,35 +88,10 @@ public class ValidateCodeFilter extends ZuulFilter {
     public boolean shouldFilter() {
         HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
         log.info("是否需要过滤的地址："+request.getRequestURI());
-        /*if (!StringUtils.containsIgnoreCase(request.getRequestURI(),
-                SecurityConstants.OAUTH_TOKEN_URL)) {
-            return false;
-        }
-        if (!StringUtils.containsIgnoreCase(request.getRequestURI(),
-                 SecurityConstants.MOBILE_TOKEN_URL)) {
-            return false;
-        }
-
-
-        try {
-            String[] clientInfos = AuthUtils.extractAndDecodeHeader(request);
-            if (CollectionUtils.containsAny(filterIgnorePropertiesConfig.getClients(), Arrays.asList(clientInfos))) {
-                return false;
-            }
-        } catch (IOException e) {
-            log.error("解析终端信息失败", e);
-        }*/
-
-//        if (CollectionUtils.containsAny(filterIgnorePropertiesConfig.getSmsurls(),Arrays.asList(request.getRequestURI()))){
-//            return true;
-//        }
-//        if (CollectionUtils.containsAny(filterIgnorePropertiesConfig.getHashcodeurls(),Arrays.asList(request.getRequestURI()))){
-//            return true;
-//        }
 
         List<String> imageurls = filterIgnorePropertiesConfig.getIamgeurls();
         for (String smsUrl:imageurls){
-            if (pathMatcher.match(smsUrl, request.getRequestURI())) {
+            if (pathMatcher.match(smsUrl, request.getRequestURI())&&request.getMethod().equalsIgnoreCase("post")) {
                 return true;
             }
         }
@@ -124,14 +99,14 @@ public class ValidateCodeFilter extends ZuulFilter {
 
         List<String> smsurls = filterIgnorePropertiesConfig.getSmsurls();
         for (String smsUrl:smsurls){
-            if (pathMatcher.match(smsUrl, request.getRequestURI())) {
+            if (pathMatcher.match(smsUrl, request.getRequestURI())&&request.getMethod().equalsIgnoreCase("post")) {
                 return true;
             }
         }
 
         List<String> hashcodeurls = filterIgnorePropertiesConfig.getHashcodeurls();
         for (String hcUrl:hashcodeurls){
-            if (pathMatcher.match(hcUrl, request.getRequestURI())) {
+            if (pathMatcher.match(hcUrl, request.getRequestURI())&&request.getMethod().equalsIgnoreCase("post")) {
                 return true;
             }
         }
@@ -163,9 +138,6 @@ public class ValidateCodeFilter extends ZuulFilter {
      */
     private void checkCode(HttpServletRequest httpServletRequest) throws ValidateCodeException {
 
-
-        String codeType = httpServletRequest.getParameter("codeType");
-
         String randomStr="";
         String code="";
             code = httpServletRequest.getParameter("systemCode");
@@ -173,18 +145,9 @@ public class ValidateCodeFilter extends ZuulFilter {
                 throw new ValidateCodeException("请输入验证码");
             }
             randomStr= httpServletRequest.getParameter("randomStr");
-
-//            code=httpServletRequest.getParameter("randomStr");
-//            if (StringUtils.isBlank(code)) {
-//                throw new ValidateCodeException("请输入hash验证码");
-//            }
-//            randomStr=code;
-//
-//            code=httpServletRequest.getParameter("smsCode");
-//            if (StringUtils.isBlank(code)) {
-//                throw new ValidateCodeException("请输入短信验证码");
-//            }
-//            randomStr= httpServletRequest.getParameter("randomStr");
+            if (StringUtils.isBlank(randomStr)){
+                throw new ValidateCodeException("请输入randomStr");
+            }
 
         String key = SecurityConstants.DEFAULT_CODE_KEY + randomStr;
         if (!redisTemplate.hasKey(key)) {

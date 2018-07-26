@@ -2,6 +2,7 @@ package com.nemo.sj.system.controller;
 
 
 import com.baomidou.mybatisplus.mapper.Condition
+import com.baomidou.mybatisplus.plugins.Page
 import com.nemo.sj.common.JsonData
 import com.nemo.sj.dto.SysRoleDto
 import com.nemo.sj.dto.UserDto
@@ -83,6 +84,14 @@ class SysUserController {
     fun findByDepIdList(@PathVariable depid: Int): List<SysUser> {
         return isysUserService.findByDepIdList(depid)
     }
+
+
+    @GetMapping("/page")
+    fun findUserListPage(page: Page<SysUser>, user: SysUserDto): Page<SysUserDto>? {
+
+        return isysUserService.findUserListPage(page,user);
+    }
+
 
 
 }

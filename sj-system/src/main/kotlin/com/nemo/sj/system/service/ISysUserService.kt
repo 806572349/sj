@@ -1,8 +1,10 @@
 package com.nemo.sj.system.service;
 
+import com.baomidou.mybatisplus.plugins.Page
 import com.nemo.sj.system.entity.SysUser;
 import com.baomidou.mybatisplus.service.IService;
 import com.nemo.sj.common.JsonData
+import com.nemo.sj.system.vo.SysUserDto
 
 /**
  * <p>
@@ -26,4 +28,9 @@ interface ISysUserService : IService<SysUser> {
 
     fun saveImageCode(randomStr: String, text: String)
     fun saveHashCode(): JsonData
+
+    /**
+     * 用户查询分页
+     */
+    fun findUserListPage(page: Page<SysUser>, user: SysUserDto): Page<SysUserDto>?
 }

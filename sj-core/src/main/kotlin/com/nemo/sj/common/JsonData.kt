@@ -12,6 +12,8 @@ class JsonData {
 
     var data:Any="";
 
+    var retCode:Int=1;
+
     fun toMap():Map<String,Any>{
         val map = hashMapOf<String, Any>()
         map["ret"]=ret
@@ -34,6 +36,16 @@ class JsonData {
                 ret=false
                 this.msg=msg
                 this.data=data
+                this.retCode=-1
+            }
+        }
+
+        fun fail(data: Any,retCode:Int):JsonData{
+            return JsonData().apply {
+                ret=false
+                this.msg=msg
+                this.data=data
+                this.retCode=retCode
             }
         }
 
@@ -42,6 +54,7 @@ class JsonData {
                 ret=false
                 this.msg=msg
                 this.data=data
+                this.retCode=-1
             }
         }
 
@@ -50,6 +63,15 @@ class JsonData {
                 ret=true
                 this.msg=msg
                 this.data=data
+            }
+        }
+
+        fun success(msg: String,retCode:Int):JsonData{
+            return JsonData().apply {
+                ret=true
+                this.msg=msg
+                this.data=data
+                this.retCode=retCode
             }
         }
 

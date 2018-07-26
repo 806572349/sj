@@ -30,6 +30,28 @@ class SysUserDto {
     var mail: String? = null
 
 
+    var operateIp: String? = null
+
+    /**
+     * 部门名称
+     */
+    var deptName: String? = null
+
+
+    /**
+     * 部门id
+     */
+    var deptId: Int? = null
+
+    /**
+     * 角色id
+     */
+    var roleId: Int? = null
+
+    /**
+     * 角色名称
+     */
+    var roleName:String=""
     /**
      * 静态方法
      */

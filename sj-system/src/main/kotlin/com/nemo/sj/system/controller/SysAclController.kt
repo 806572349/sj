@@ -2,8 +2,11 @@ package com.nemo.sj.system.controller;
 
 
 import com.nemo.sj.dto.AclDto
+import com.nemo.sj.dto.SysAclTree
+import com.nemo.sj.system.entity.SysAcl
 import com.nemo.sj.system.entity.SysRoleAcl
 import com.nemo.sj.system.service.ISysAclService
+import com.nemo.sj.system.service.ISysUserService
 import org.springframework.beans.BeanUtils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -25,6 +28,8 @@ class SysAclController{
     @Autowired
     lateinit var iSysAclService: ISysAclService
 
+
+
     /**
      *  根据角色名 查询模块列表
      */
@@ -36,6 +41,14 @@ class SysAclController{
             BeanUtils.copyProperties(a,dto)
             dto
         }.collect(Collectors.toList())
+    }
+    /**
+     * 通过用户id  查询模块
+     * @param uid  用户id
+     */
+    @GetMapping("/findAclByUserId/{uid}")
+    fun findAclByRoleName(@PathVariable uid:Int):List<SysAclTree>?{
+        return iSysAclService.findByAclByUserId(uid)
     }
 
 }
