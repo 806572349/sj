@@ -20,6 +20,9 @@
         <result column="method" property="method" />
         <result column="icon" property="icon" />
         <result column="component" property="component" />
+        <result column="parent_id" property="parentId" />
+
+
     </resultMap>
 
 </mapper>

@@ -89,6 +89,10 @@ class SysAcl : Model<SysAcl>() {
      * vue 界面
      */
     var component: String? = null
+
+    @TableField("parent_id")
+    var parentId:Int?=null
+
     override fun pkVal(): Serializable? {
         return id
     }
@@ -106,7 +110,7 @@ class SysAcl : Model<SysAcl>() {
         ", remark=" + remark +
         ", operator=" + operator +
         ", operateTime=" + operateTime +
-        ", operateIp=" + operateIp +"icon="+icon+"path="+path+"component="+component+"method="+method
+        ", operateIp=" + operateIp +"icon="+icon+"path="+path+"component="+component+"method="+method+"parentId="+parentId
         "}"
     }
 }
