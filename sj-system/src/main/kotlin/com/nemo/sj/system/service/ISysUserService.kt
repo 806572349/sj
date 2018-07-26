@@ -2,6 +2,7 @@ package com.nemo.sj.system.service;
 
 import com.nemo.sj.system.entity.SysUser;
 import com.baomidou.mybatisplus.service.IService;
+import com.nemo.sj.common.JsonData
 
 /**
  * <p>
@@ -22,4 +23,7 @@ interface ISysUserService : IService<SysUser> {
      * @param depId 部门id
      */
     fun findByDepIdList(depId: Int): List<SysUser>
+
+    fun saveImageCode(randomStr: String, text: String)
+    fun saveHashCode(): JsonData
 }

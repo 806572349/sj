@@ -91,7 +91,10 @@ allprojects {
             exclude module:'tomcat-jdbc'
         }
 
-        compile project(":sj-core")
+        compile project(":sj-core")// https://mvnrepository.com/artifact/com.google.code.kaptcha/kaptcha
+        //验证码
+        compile group: 'com.github.axet', name: 'kaptcha', version: '0.0.9'
+        compile("org.springframework.boot:spring-boot-starter-data-redis")
 
     }
     dependencyManagement {

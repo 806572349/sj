@@ -44,14 +44,15 @@ feign:
 security:
   oauth2:
     client:
-      client-id: app
-      client-secret: app
+      client-id: sj
+      client-secret: sj
     resource:
       token-info-uri: http://localhost:8887/oauth/check-token
       service-id: sj-getway
       jwt:
          key-uri: http://localhost:8887/oauth/token_key #解析jwt令牌所需要密钥的地址
-
+  validate:
+      code: true
 ignore:
   urls:
     - /authentication/**
@@ -65,6 +66,15 @@ ignore:
     - /loggers/**
     - /mobile/token
     - /auth/**
+    - /system/code/**
+    - /system/hashCode/**
+#  hashcodeurls:
+#    - /system/code/**
+
+  iamgeurls:
+    - /auth/oauth/token
+
+
 
 
 server:

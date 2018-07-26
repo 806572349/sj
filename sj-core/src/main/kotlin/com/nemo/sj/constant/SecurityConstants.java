@@ -71,6 +71,8 @@ public interface SecurityConstants {
      */
     String DEFAULT_VALIDATE_CODE_URL_PREFIX = "/code";
 
+
+    String DEFAULT_VALIDATE_HASHCODE_URL_PREFIX = "/hashCode";
     /**
      * 手机号的处理验证码的url前缀
      */

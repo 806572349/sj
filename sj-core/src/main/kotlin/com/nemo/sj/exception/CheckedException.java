@@ -15,30 +15,33 @@
  * Author: lengleng (wangiegie@gmail.com)
  */
 
-package com.nemo.sj.config;
-
-import lombok.Data;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.nemo.sj.exception;
 
 /**
  * @author lengleng
- * @date 2018/1/9
+ * @date 😴2017年12月21日20:44:38
  */
-@Data
-@Configuration
-@ConditionalOnExpression("!'${ignore}'.isEmpty()")
-@ConfigurationProperties(prefix = "ignore")
-public class FilterIgnorePropertiesConfig {
-    private List<String> urls = new ArrayList<>();
+public class CheckedException extends RuntimeException {
 
-    private List<String> clients = new ArrayList<>();
+    private static final long serialVersionUID = 1L;
 
-    private List<String> iamgeurls=new ArrayList<>();
-    private List<String> smsurls=new ArrayList<>();
-    private List<String> hashcodeurls=new ArrayList<>();
+    public CheckedException() {
+    }
+
+    public CheckedException(String message) {
+        super(message);
+    }
+
+    public CheckedException(Throwable cause) {
+        super(cause);
+    }
+
+    public CheckedException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public CheckedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
+
 }
