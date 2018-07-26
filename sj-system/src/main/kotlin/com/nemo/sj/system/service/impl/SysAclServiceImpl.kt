@@ -95,7 +95,10 @@ open class SysAclServiceImpl : ServiceImpl<SysAclMapper, SysAcl>(), ISysAclServi
         dtoList.forEach { y->
             val sysAclTree = SysAclTree()
             BeanUtils.copyProperties(y,sysAclTree)
-            treeList.add(sysAclTree)
+            //多角色模块重复问题
+            if (!treeList.contains(sysAclTree)){
+                treeList.add(sysAclTree)
+            }
         }
         treeList.sortWith(kotlin.Comparator{o1, o2 -> o1.seq!!.compareTo(o2.seq!!)})
 
