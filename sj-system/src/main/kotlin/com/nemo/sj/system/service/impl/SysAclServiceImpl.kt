@@ -67,7 +67,7 @@ open class SysAclServiceImpl : ServiceImpl<SysAclMapper, SysAcl>(), ISysAclServi
      * @param uid  用户id
      */
     override fun findByAclByUserId(uid: Int):List<SysAclTree> {
-        //查询角色列表
+        //查询用户角色列表
         val roleList = iSysRoleUserService.findRoleListByUserId(uid)
         val collect = roleList.stream()
                 .map { role ->

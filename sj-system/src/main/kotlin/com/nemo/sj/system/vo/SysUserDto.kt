@@ -1,6 +1,7 @@
 package com.nemo.sj.system.vo
 
 import com.nemo.sj.system.common.util.Converter
+import com.nemo.sj.system.entity.SysRole
 import com.nemo.sj.system.entity.SysUser
 import org.springframework.beans.BeanUtils
 
@@ -44,14 +45,10 @@ class SysUserDto {
     var deptId: Int? = null
 
     /**
-     * 角色id
+     * 角色
      */
-    var roleId: Int? = null
+    var roleList:List<SysRole>?=null
 
-    /**
-     * 角色名称
-     */
-    var roleName:String=""
     /**
      * 静态方法
      */

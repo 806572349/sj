@@ -112,6 +112,8 @@ open class SysUserServiceImpl : ServiceImpl<SysUserMapper, SysUser>(), ISysUserS
             BeanUtils.copyProperties(a, dto)
             dto.deptName = dept.name
             dto.password = "******"
+            val roleList = iSysRoleUserService.findRoleListByUserId( a.id)
+            dto.roleList=roleList
             dto
         }.collect(Collectors.toList())
         val page2 = Page<SysUserDto>()
