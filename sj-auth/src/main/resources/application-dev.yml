@@ -36,7 +36,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: csn
     password: 123456
-    url: jdbc:mysql://192.168.2.101:3306/sj?useUnicode=true&amp;characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.2.102:3306/sj?useUnicode=true&amp;characterEncoding=UTF-8
     type: com.zaxxer.hikari.HikariDataSource
 server:
   port: 8887

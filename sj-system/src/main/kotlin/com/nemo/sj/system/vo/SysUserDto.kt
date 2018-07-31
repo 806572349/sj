@@ -4,12 +4,17 @@ import com.nemo.sj.system.common.util.Converter
 import com.nemo.sj.system.entity.SysRole
 import com.nemo.sj.system.entity.SysUser
 import org.springframework.beans.BeanUtils
+import java.util.*
 
 /**
  *  create by Nemo
  *  2018/7/24  14:07
  */
 class SysUserDto {
+
+
+    var status: Int? = null
+    var id:Int?=null
     /**
      * 用户名
      */
@@ -49,6 +54,8 @@ class SysUserDto {
      */
     var roleList:List<SysRole>?=null
 
+
+    var operateTime: Date? = null
     /**
      * 静态方法
      */

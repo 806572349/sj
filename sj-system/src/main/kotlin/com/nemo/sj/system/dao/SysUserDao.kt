@@ -18,8 +18,11 @@ class SysUserDao : BaseDao() {
     lateinit var userMapper: SysUserMapper
 
     fun  queryone(user: SysUser): SysUser?{
-        val sysUser = userMapper.selectOne(user)
-        return  sysUser
+        val wrapper = Condition.wrapper<SysUser>()
+        wrapper.eq("username",user.username)
+
+        val sysUser = userMapper.selectList(wrapper)
+        return  if (sysUser.size>0) sysUser.get(0) else null
     }
 
     fun queryListByDepId(user: SysUser):List<SysUser>{

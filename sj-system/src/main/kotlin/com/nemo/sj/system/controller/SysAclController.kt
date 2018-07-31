@@ -1,6 +1,7 @@
 package com.nemo.sj.system.controller;
 
 
+import com.baomidou.mybatisplus.plugins.Page
 import com.nemo.sj.dto.AclDto
 import com.nemo.sj.dto.SysAclTree
 import com.nemo.sj.system.entity.SysAcl
@@ -49,6 +50,14 @@ class SysAclController{
     @GetMapping("/findAclByUserId/{uid}")
     fun findAclByRoleName(@PathVariable uid:Int):List<SysAclTree>?{
         return iSysAclService.findByAclByUserId(uid)
+    }
+
+    /**
+     * 查询模块列表
+     */
+    @GetMapping("/page")
+    fun findByPage(page: Page<SysAcl>):Page<SysAcl>{
+        return iSysAclService.selectPage(page)
     }
 
 }

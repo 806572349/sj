@@ -20,6 +20,7 @@ package com.nemo.sj.service;
 
 import com.nemo.sj.dto.UserDto;
 import com.nemo.sj.entity.UserDetailsImpl;
+import com.nemo.sj.exception.OptException;
 import com.nemo.sj.fegin.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
     public UserDetailsImpl loadUserByUsername(String username) throws UsernameNotFoundException {
         UserDto userVo = userService.findUserByUsername(username);
         log.info("用户信息:{}",userVo.toString());
+        if (userVo==null){
+            throw  new OptException("未找到用户信息");
+        }
         return new UserDetailsImpl(userVo);
     }
 }

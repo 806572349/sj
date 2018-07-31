@@ -12,12 +12,15 @@ import com.nemo.sj.system.entity.SysUser
 import com.nemo.sj.system.service.ISysRoleUserService
 import com.nemo.sj.system.service.ISysUserService
 import com.nemo.sj.system.vo.SysUserDto
+import com.nemo.sj.util.IpUtil
 import org.apache.coyote.http11.Constants.a
 import org.springframework.beans.BeanUtils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
+import java.util.*
 import java.util.stream.Collector
 import java.util.stream.Collectors
+import javax.servlet.http.HttpServletRequest
 
 /**
  * <p>
@@ -63,6 +66,9 @@ class SysUserController {
         val entityWrapper = Condition.wrapper<SysUser>()
         entityWrapper.eq("username",username);
         val sysUser = isysUserService.selectOne(entityWrapper)
+        if(sysUser==null){
+            return null
+        }
         var userDto=UserDto()
         BeanUtils.copyProperties(sysUser,userDto)
 
@@ -92,6 +98,20 @@ class SysUserController {
         return isysUserService.findUserListPage(page,user);
     }
 
+    /**
+     * 跟新用户信息
+     */
+    @PostMapping("/updateinfo")
+    fun updateOrUpdateUser(req: HttpServletRequest, user: SysUserDto): SysUser? {
+        val updateUser = SysUserDto.doForward(user)
+        if (updateUser.id==null){
+            updateUser.password=MD5Util.md5Digest("123456")
+        }
+        updateUser.operateTime= Date()
+        updateUser.operateIp=IpUtil.getRemoteIp(req)
+        isysUserService.insertOrUpdate(updateUser)
+        return updateUser;
+    }
 
 
 }

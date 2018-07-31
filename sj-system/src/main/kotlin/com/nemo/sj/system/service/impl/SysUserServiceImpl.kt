@@ -18,6 +18,8 @@ import com.nemo.sj.system.service.ISysDeptService
 import com.nemo.sj.system.service.ISysRoleService
 import com.nemo.sj.system.service.ISysRoleUserService
 import com.nemo.sj.system.vo.SysUserDto
+import com.nemo.sj.util.ObjectNullUtil
+import org.apache.commons.lang3.ObjectUtils
 import org.apache.commons.lang3.StringUtils
 import org.apache.coyote.http11.Constants.a
 import org.springframework.beans.BeanUtils
@@ -100,17 +102,19 @@ open class SysUserServiceImpl : ServiceImpl<SysUserMapper, SysUser>(), ISysUserS
      */
     override fun  findUserListPage(page: Page<SysUser>,user: SysUserDto): Page<SysUserDto>? {
         val entityWrapper = Condition.wrapper<SysUser>()
-
+        if (StringUtils.isNotBlank(user.mail))entityWrapper.eq("mail",user.mail)
         if (StringUtils.isNotBlank(user.username))entityWrapper.eq("username",user.username)
         if (StringUtils.isNotBlank(user.telephone))entityWrapper.eq("telephone",user.telephone)
+        if (user.status!=null)entityWrapper.eq("status",user.status)
         val page1 = this.selectPage(page, entityWrapper)
         val data = page1.records
         val list = data.stream().map { a ->
             val dept = sysDeptServiceImpl.selectById(a.deptId)
-
             var dto = SysUserDto()
             BeanUtils.copyProperties(a, dto)
-            dto.deptName = dept.name
+            if(dept!=null){
+                dto.deptName = dept.name
+            }
             dto.password = "******"
             val roleList = iSysRoleUserService.findRoleListByUserId( a.id)
             dto.roleList=roleList
@@ -122,7 +126,6 @@ open class SysUserServiceImpl : ServiceImpl<SysUserMapper, SysUser>(), ISysUserS
         page2.records=list
         page2.size=page1.size
         page2.total=page1.total
-
         return  page2
 
     }
