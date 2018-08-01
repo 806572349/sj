@@ -77,9 +77,11 @@ open class SysAclServiceImpl : ServiceImpl<SysAclMapper, SysAcl>(), ISysAclServi
                     val aclList = aclRoles.stream().map { b ->
                         val sysAcl = sysAclService.selectById(b.aclId)
                         sysAcl
-                    }.collect(Collectors.toList())
+                    }.filter { t->t!=null }.collect(Collectors.toList())
                     aclList
-                }.collect(Collectors.toList())
+                }.filter { rt->rt!=null }
+                .filter{k->k.size!=0}
+                .collect(Collectors.toList())
         var aclList = ArrayList<SysAcl>()
         collect.forEach { a -> aclList.addAll(a) }
         aclList.sortWith(kotlin.Comparator { o1, o2 -> o1.seq!!.compareTo(o2.seq!!) })

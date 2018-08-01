@@ -26,6 +26,7 @@ import org.springframework.beans.BeanUtils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.stereotype.Service;
+import java.util.*
 import java.util.concurrent.TimeUnit
 import java.util.stream.Collectors
 import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
@@ -100,14 +101,9 @@ open class SysUserServiceImpl : ServiceImpl<SysUserMapper, SysUser>(), ISysUserS
     /**
      * 用户查询分页
      */
-    override fun  findUserListPage(page: Page<SysUser>,user: SysUserDto): Page<SysUserDto>? {
-        val entityWrapper = Condition.wrapper<SysUser>()
-        if (StringUtils.isNotBlank(user.mail))entityWrapper.eq("mail",user.mail)
-        if (StringUtils.isNotBlank(user.username))entityWrapper.eq("username",user.username)
-        if (StringUtils.isNotBlank(user.telephone))entityWrapper.eq("telephone",user.telephone)
-        if (user.status!=null)entityWrapper.eq("status",user.status)
-        val page1 = this.selectPage(page, entityWrapper)
-        val data = page1.records
+    override fun  findUserListPage(page: Page<SysUser>, user: SysUserDto, startTime: Date?, endTime: Date?): Page<SysUserDto>? {
+        val page1 = userDao.findUserListPage(page, user, startTime, endTime)
+        val data = page1!!.records
         val list = data.stream().map { a ->
             val dept = sysDeptServiceImpl.selectById(a.deptId)
             var dto = SysUserDto()

@@ -33,9 +33,20 @@ zuul:
   host:
       connect-timeout-millis: 10000
       socket-timeout-millis: 10000
-feign:
-  httpclient:
-    connection-timeout: 10000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+ribbon:
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+
+
 #server:
 #  servlet-path: /api
 #认证服务器地址

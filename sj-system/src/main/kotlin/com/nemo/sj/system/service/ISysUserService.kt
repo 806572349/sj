@@ -5,6 +5,7 @@ import com.nemo.sj.system.entity.SysUser;
 import com.baomidou.mybatisplus.service.IService;
 import com.nemo.sj.common.JsonData
 import com.nemo.sj.system.vo.SysUserDto
+import java.util.*
 
 /**
  * <p>
@@ -32,5 +33,5 @@ interface ISysUserService : IService<SysUser> {
     /**
      * 用户查询分页
      */
-    fun findUserListPage(page: Page<SysUser>, user: SysUserDto): Page<SysUserDto>?
+    fun findUserListPage(page: Page<SysUser>, user: SysUserDto, startTime: Date?, endTime: Date?): Page<SysUserDto>?
 }

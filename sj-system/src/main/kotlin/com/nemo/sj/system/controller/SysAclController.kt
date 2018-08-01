@@ -8,6 +8,7 @@ import com.nemo.sj.system.entity.SysAcl
 import com.nemo.sj.system.entity.SysRoleAcl
 import com.nemo.sj.system.service.ISysAclService
 import com.nemo.sj.system.service.ISysUserService
+import org.apache.coyote.http11.Constants.a
 import org.springframework.beans.BeanUtils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -37,7 +38,7 @@ class SysAclController{
     @GetMapping("/findAclByRoleName/{roleName}")
     fun findAclByRoleName(@PathVariable roleName:String):List<AclDto>{
         val aclList = iSysAclService.findAclByRoleName(roleName)
-        return  aclList.stream().map { a->
+        return  aclList.stream().filter{a->a!=null}.map { a->
             var dto=AclDto()
             BeanUtils.copyProperties(a,dto)
             dto

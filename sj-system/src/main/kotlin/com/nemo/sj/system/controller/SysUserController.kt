@@ -93,9 +93,9 @@ class SysUserController {
 
 
     @GetMapping("/page")
-    fun findUserListPage(page: Page<SysUser>, user: SysUserDto): Page<SysUserDto>? {
+    fun findUserListPage(page: Page<SysUser>, user: SysUserDto,startTime:Date?,endTime:Date?): Page<SysUserDto>? {
 
-        return isysUserService.findUserListPage(page,user);
+        return isysUserService.findUserListPage(page,user,startTime,endTime)
     }
 
     /**
