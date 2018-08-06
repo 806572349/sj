@@ -66,7 +66,7 @@ open class SysAclServiceImpl : ServiceImpl<SysAclMapper, SysAcl>(), ISysAclServi
      * 通过用户id  查询模块
      * @param uid  用户id
      */
-    override fun findByAclByUserId(uid: Int):List<SysAclTree> {
+    override fun findByAclByUserId(uid: Int): List<SysAclTree> {
         //查询用户角色列表
         val roleList = iSysRoleUserService.findRoleListByUserId(uid)
         val collect = roleList.stream()
@@ -77,37 +77,41 @@ open class SysAclServiceImpl : ServiceImpl<SysAclMapper, SysAcl>(), ISysAclServi
                     val aclList = aclRoles.stream().map { b ->
                         val sysAcl = sysAclService.selectById(b.aclId)
                         sysAcl
-                    }.filter { t->t!=null }.collect(Collectors.toList())
+                    }.filter { t -> t != null }.collect(Collectors.toList())
                     aclList
-                }.filter { rt->rt!=null }
-                .filter{k->k.size!=0}
+                }.filter { rt -> rt != null }
+                .filter { k -> k.size != 0 }
                 .collect(Collectors.toList())
         var aclList = ArrayList<SysAcl>()
+        // 增加模块
         collect.forEach { a -> aclList.addAll(a) }
         aclList.sortWith(kotlin.Comparator { o1, o2 -> o1.seq!!.compareTo(o2.seq!!) })
 
+        // 转化为模块dto
         val dtoList = aclList.stream().map { q ->
             var dto = AclDto()
             BeanUtils.copyProperties(q, dto)
             dto
-        }.collect(Collectors.toList())
+        }
+                // 过滤出菜单状态不为0
+                .filter { k -> k.status != 0 }
+                .collect(Collectors.toList())
 
-        var treeList=ArrayList<SysAclTree>()
-
-        dtoList.forEach { y->
+        var treeList = ArrayList<SysAclTree>()
+        // 获取模块树
+        dtoList.forEach { y ->
             val sysAclTree = SysAclTree()
-            BeanUtils.copyProperties(y,sysAclTree)
+            BeanUtils.copyProperties(y, sysAclTree)
             //多角色模块重复问题
-            if (!treeList.contains(sysAclTree)){
+            if (!treeList.contains(sysAclTree)) {
                 treeList.add(sysAclTree)
             }
         }
-        treeList.sortWith(kotlin.Comparator{o1, o2 -> o1.seq!!.compareTo(o2.seq!!)})
-
+        // 模块排序
+        treeList.sortWith(kotlin.Comparator { o1, o2 -> o1.seq!!.compareTo(o2.seq!!) })
+        //root节点id 为-1
         return TreeUtil.bulid(treeList, -1)
     }
-
-
 
 
 }

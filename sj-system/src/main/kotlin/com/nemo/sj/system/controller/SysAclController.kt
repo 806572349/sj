@@ -38,11 +38,12 @@ class SysAclController{
     @GetMapping("/findAclByRoleName/{roleName}")
     fun findAclByRoleName(@PathVariable roleName:String):List<AclDto>{
         val aclList = iSysAclService.findAclByRoleName(roleName)
-        return  aclList.stream().filter{a->a!=null}.map { a->
-            var dto=AclDto()
-            BeanUtils.copyProperties(a,dto)
+        val data = aclList.stream().filter { a -> a != null }.map { a ->
+            var dto = AclDto()
+            BeanUtils.copyProperties(a, dto)
             dto
         }.collect(Collectors.toList())
+        return   data
     }
     /**
      * 通过用户id  查询模块
@@ -59,6 +60,14 @@ class SysAclController{
     @GetMapping("/page")
     fun findByPage(page: Page<SysAcl>):Page<SysAcl>{
         return iSysAclService.selectPage(page)
+    }
+
+    /**
+     * 通过id 查询模块
+     */
+    @GetMapping("/page/{id}")
+    fun  findById(@PathVariable id:Int):SysAcl{
+        return iSysAclService.selectById(id)
     }
 
 }

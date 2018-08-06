@@ -2,6 +2,7 @@ package com.nemo.sj.system.service;
 
 import com.nemo.sj.system.entity.SysDept;
 import com.baomidou.mybatisplus.service.IService;
+import com.nemo.sj.dto.DeptTree
 
 /**
  * <p>
@@ -11,4 +12,7 @@ import com.baomidou.mybatisplus.service.IService;
  * @author nemo
  * @since 2018-07-09
  */
-interface ISysDeptService : IService<SysDept>
+interface ISysDeptService : IService<SysDept> {
+    fun findByDeptTree(dept:SysDept,root:Int): List<DeptTree>
+    fun findList(dept: SysDept): List<SysDept>
+}

@@ -40,6 +40,7 @@ class GlobalExceptionResolver : BaseExceptionResolver() {
     @ExceptionHandler(value = [(OptException::class)])
     fun exceptionHandler(ex:OptException): JsonData {
         val jsonData = JsonData.fail(ex.message!!)
+        jsonData.msg=ex.message!!
         log.error("出现错误json：{}",ex.message)
         return jsonData;
     }
