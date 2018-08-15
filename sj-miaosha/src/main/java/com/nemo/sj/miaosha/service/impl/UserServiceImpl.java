@@ -2,6 +2,8 @@ package com.nemo.sj.miaosha.service.impl;
 
 import com.nemo.sj.miaosha.common.cache.MiaoshaUserKey;
 import com.nemo.sj.miaosha.common.cache.RedisService;
+import com.nemo.sj.miaosha.common.cache.UserKey;
+import com.nemo.sj.miaosha.entity.MiaoshaUser;
 import com.nemo.sj.miaosha.entity.User;
 import com.nemo.sj.miaosha.exception.GlobalException;
 import com.nemo.sj.miaosha.mapper.UserMapper;
@@ -31,8 +33,34 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public static final String COOKI_NAME_TOKEN = "token";
     @Autowired
     RedisService redisService;
+
     public User getById(long id) {
-        return this.selectById(id);
+        //取缓存
+        User user = redisService.get(UserKey.getById, "" + id, User.class);
+        if (user!=null)return null;
+        //取数据
+        user= this.selectById(id);
+        if (user!=null) redisService.set(UserKey.getById, "" + id, user);
+        return user;
+    }
+
+    // http://blog.csdn.net/tTU1EvLDeLFq5btqiK/article/details/78693323
+    public boolean updatePassword(String token, long id, String formPass) {
+        //取user
+        User user = getById(id);
+        if(user == null) {
+            throw new GlobalException(CodeMsg.MOBILE_NOT_EXIST);
+        }
+        //更新数据库
+        User toBeUpdate = new User();
+        toBeUpdate.setId(id);
+        toBeUpdate.setPassword(MD5Util.formPassToDBPass(formPass, user.getSalt()));
+        this.insertOrUpdate(toBeUpdate);
+        //处理缓存
+        redisService.delete(UserKey.getById, ""+id);
+        user.setPassword(toBeUpdate.getPassword());
+        redisService.set(MiaoshaUserKey.token, token, user);
+        return true;
     }
 
 

@@ -3,6 +3,7 @@ package com.nemo.sj.miaosha.controller;
 import com.nemo.sj.miaosha.common.cache.RedisService;
 import com.nemo.sj.miaosha.common.cache.UserKey;
 import com.nemo.sj.miaosha.entity.User;
+import com.nemo.sj.miaosha.mq.MQSender;
 import com.nemo.sj.miaosha.result.CodeMsg;
 import com.nemo.sj.miaosha.result.Result;
 import com.nemo.sj.miaosha.service.IUserService;
@@ -24,6 +25,9 @@ public class DemoController {
 
     @Autowired
     private RedisService redisService;
+
+    @Autowired
+    private MQSender mqSender;
 
     @ResponseBody
     @GetMapping("success")
@@ -56,4 +60,17 @@ public class DemoController {
       return   redisService.get(UserKey.getById,"1",User.class);
     }
 
+//    @GetMapping
+//    public  void tet(){
+//        User user = new User();
+//        user.setId(1L);
+//        mqSender.send(user);
+//    }
+
+    @GetMapping("/ss")
+    public  void ttopic(){
+        User user = new User();
+        user.setId(1L);
+        mqSender.sendTopic(user);
+    }
 }
