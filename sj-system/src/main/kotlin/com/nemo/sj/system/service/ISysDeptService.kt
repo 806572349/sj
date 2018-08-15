@@ -13,6 +13,9 @@ import com.nemo.sj.dto.DeptTree
  * @since 2018-07-09
  */
 interface ISysDeptService : IService<SysDept> {
+    /**
+     * 查询部门树
+     */
     fun findByDeptTree(dept:SysDept,root:Int): List<DeptTree>
     fun findList(dept: SysDept): List<SysDept>
 }
