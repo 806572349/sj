@@ -1,0 +1,67 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.15.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+
+allprojects {
+
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+
+    group = 'com.nemo.sj.miaosha'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web'){
+            exclude module:'tomcat-jdbc'
+        }
+        compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+        compileOnly('org.projectlombok:lombok')
+
+        //HikariCP连接池
+        compile('com.zaxxer:HikariCP')
+        //数据库驱动
+        compile("mysql:mysql-connector-java")
+
+        compile("com.baomidou:mybatis-plus-boot-starter:2.3"){
+            exclude module:'tomcat-jdbc'
+        }
+        compile group: 'org.apache.velocity', name: 'velocity-engine-core', version: '2.0'
+
+        compile('org.springframework:spring-tx')
+
+
+        // https://mvnrepository.com/artifact/redis.clients/jedis
+        compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+
+        compile("com.alibaba:fastjson:1.2.47")
+
+        compile('commons-codec:commons-codec')
+        //
+//        compile('com.fasterxml.jackson.dataformat:jackson-dataformat-xml')
+        //
+        // 返回格式json  和xml
+//        compile('com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+}
