@@ -1,4 +1,4 @@
-package com.nemo.sj.system.after;
+package com.nemo.sj.system.init;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

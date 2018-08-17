@@ -1,3 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: testprd
+logging:
+  level:
+    root: warn

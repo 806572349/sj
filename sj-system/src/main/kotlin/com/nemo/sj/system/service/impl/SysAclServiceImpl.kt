@@ -1,5 +1,7 @@
 package com.nemo.sj.system.service.impl;
 
+import com.baomidou.mybatisplus.mapper.Condition
+import com.baomidou.mybatisplus.plugins.Page
 import com.nemo.sj.system.entity.SysAcl;
 import com.nemo.sj.system.mapper.SysAclMapper;
 import com.nemo.sj.system.service.ISysAclService;
@@ -10,6 +12,7 @@ import com.nemo.sj.system.entity.SysRoleAcl
 import com.nemo.sj.system.service.ISysRoleAclService
 import com.nemo.sj.system.service.ISysRoleService
 import com.nemo.sj.system.service.ISysRoleUserService
+import com.nemo.sj.system.vo.SysAclVo
 import com.nemo.sj.util.TreeUtil
 import org.apache.coyote.http11.Constants.a
 import org.bouncycastle.crypto.tls.CipherType.stream
@@ -111,6 +114,27 @@ open class SysAclServiceImpl : ServiceImpl<SysAclMapper, SysAcl>(), ISysAclServi
         treeList.sortWith(kotlin.Comparator { o1, o2 -> o1.seq!!.compareTo(o2.seq!!) })
         //root节点id 为-1
         return TreeUtil.bulid(treeList, -1)
+    }
+
+
+    override fun  findByPage(page: Page<SysAcl>, type:Int?, status:Int?):Page<SysAcl>{
+        val wrapper = Condition.wrapper<SysAcl>()
+        if (type!=null) wrapper.eq("type",type)
+        if (status!=null) wrapper.eq("status",status)
+        return  this.selectPage(page,wrapper)
+    }
+
+    /**
+     * 更新模块
+     */
+    override  fun  updateAcl(sysAclVo: SysAclVo):SysAcl{
+        val sysAcl = SysAcl()
+        BeanUtils.copyProperties(sysAclVo,sysAcl)
+        sysAcl.operateTime=Date()
+        val wrapper = Condition.wrapper<SysAcl>()
+        wrapper.eq("id",sysAclVo.id)
+        this.update(sysAcl,wrapper)
+        return  sysAcl
     }
 
 

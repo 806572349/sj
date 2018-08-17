@@ -8,11 +8,13 @@ import com.nemo.sj.system.entity.SysAcl
 import com.nemo.sj.system.entity.SysRoleAcl
 import com.nemo.sj.system.service.ISysAclService
 import com.nemo.sj.system.service.ISysUserService
+import com.nemo.sj.system.vo.SysAclVo
 import org.apache.coyote.http11.Constants.a
 import org.springframework.beans.BeanUtils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import java.util.stream.Collectors
+import javax.validation.Valid
 
 /**
  * <p>
@@ -58,8 +60,8 @@ class SysAclController{
      * 查询模块列表
      */
     @GetMapping("/page")
-    fun findByPage(page: Page<SysAcl>):Page<SysAcl>{
-        return iSysAclService.selectPage(page)
+    fun findByPage(page: Page<SysAcl>,type:Int?,status:Int?):Page<SysAcl>{
+        return iSysAclService.findByPage(page,type,status)
     }
 
     /**
@@ -68,6 +70,13 @@ class SysAclController{
     @GetMapping("/page/{id}")
     fun  findById(@PathVariable id:Int):SysAcl{
         return iSysAclService.selectById(id)
+    }
+    /**
+     * 更新模块
+     */
+    @PostMapping("/update")
+    fun  updateAcl(@Valid sysAcl: SysAclVo):SysAcl{
+       return iSysAclService.updateAcl(sysAcl)
     }
 
 }

@@ -96,6 +96,8 @@ allprojects {
         compile group: 'com.github.axet', name: 'kaptcha', version: '0.0.9'
         compile("org.springframework.boot:spring-boot-starter-data-redis")
 
+        compile("org.springframework.boot:spring-boot-starter-actuator")
+
     }
     dependencyManagement {
         imports {

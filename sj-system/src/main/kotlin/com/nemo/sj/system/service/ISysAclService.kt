@@ -1,9 +1,11 @@
 package com.nemo.sj.system.service;
 
+import com.baomidou.mybatisplus.plugins.Page
 import com.nemo.sj.system.entity.SysAcl;
 import com.baomidou.mybatisplus.service.IService;
 import com.nemo.sj.dto.SysAclTree
 import com.nemo.sj.system.entity.SysRoleAcl
+import com.nemo.sj.system.vo.SysAclVo
 
 /**
  * <p>
@@ -24,4 +26,10 @@ interface ISysAclService : IService<SysAcl> {
      * @param uid  用户id
      */
     fun findByAclByUserId(uid: Int): List<SysAclTree>?
+
+    fun findByPage(page: Page<SysAcl>, type: Int?, status: Int?): Page<SysAcl>
+    /**
+     * 更新模块
+     */
+    fun updateAcl(sysAclVo: SysAclVo): SysAcl
 }

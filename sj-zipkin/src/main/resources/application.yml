@@ -1,0 +1,46 @@
+server:
+  port: 5001
+
+spring:
+  # zipkin:
+  #     base-url: http://localhost:5002
+  # sleuth:
+  #   enabled: true
+  #   sampler:
+  #     percentage: 1
+  boot:
+    admin:
+      turbine:
+        location: pig-monitor
+      routes:
+        endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,turbine.stream
+  application:
+    name: pig-monitor
+
+turbine:
+    app-config: pig-gateway #收集监控信息的服务名
+    combine-host-port: true
+    cluster-name-expression: new String('default') #集群名称
+
+notifier:
+  mobile:
+    enabled: true
+    mobiles:
+      - 17034642119
+  dingTalk:
+    enabled: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+    metadata-map:
+          user:
+            name: ${security.user.name}
+            password: ${security.user.password}
+  client:
+    serviceUrl:
+      defaultZone: http://sj:sj123456@localhost:1025/eureka
+    registry-fetch-interval-seconds: 10
+

@@ -35,7 +35,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: csn
     password: 123456
-    url: jdbc:mysql://192.168.31.155:3306/sj?useUnicode=true&amp;characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.0.46:3306/sj?useUnicode=true&amp;characterEncoding=UTF-8
     type: com.zaxxer.hikari.HikariDataSource
 server:
   port: 8887
@@ -49,4 +49,9 @@ zuul:
 feign:
   httpclient:
     connection-timeout: 10000
+
+security:
+    user:
+      name: admin
+      password: 123456
 

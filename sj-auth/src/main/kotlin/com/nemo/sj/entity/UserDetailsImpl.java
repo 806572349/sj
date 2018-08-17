@@ -109,6 +109,6 @@ public class UserDetailsImpl implements UserDetails,CredentialsContainer {
 
     @Override
     public void eraseCredentials() {
-        password="想看密码?";
+        password="皮一下想看密码?";
     }
 }

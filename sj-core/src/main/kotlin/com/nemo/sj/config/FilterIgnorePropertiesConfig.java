@@ -38,7 +38,10 @@ public class FilterIgnorePropertiesConfig {
 
     private List<String> clients = new ArrayList<>();
 
+    //需要图片验证码的地址
     private List<String> iamgeurls=new ArrayList<>();
+     //需要短信验证码的地址
     private List<String> smsurls=new ArrayList<>();
+
     private List<String> hashcodeurls=new ArrayList<>();
 }

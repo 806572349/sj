@@ -13,8 +13,12 @@ spring:
 #        enabled: true
 #      profile: ${spring.profiles.active}
 #      label: ${spring.profiles.active}
+#配置日志
 logging:
-  level: error
+  #配置日志文件路径
+  level:
+    root: warn
+  file: log\gateway.log
 eureka:
   instance:
     prefer-ip-address: true
@@ -85,11 +89,12 @@ ignore:
     - /system/hashCode/**
 #  hashcodeurls:
 #    - /system/code/**
-
+# 需要图片验证码的地址
   iamgeurls:
     - /auth/oauth/token
-
-
+  # 需要短信验证码的地址
+  smsurls:
+     - /phone/login
 
 
 server:

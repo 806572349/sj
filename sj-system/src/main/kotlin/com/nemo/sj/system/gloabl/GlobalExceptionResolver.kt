@@ -27,7 +27,7 @@ class GlobalExceptionResolver : BaseExceptionResolver() {
         log.error("出现错误：{}",ex.message)
         return ModelAndView("exception",jsonData.toMap())
     }
-
+    @ResponseStatus(code = HttpStatus.EXPECTATION_FAILED)
     @ResponseBody
     @ExceptionHandler(value = [(ParamException::class)])
     fun exceptionHandler(ex:ParamException): JsonData {
